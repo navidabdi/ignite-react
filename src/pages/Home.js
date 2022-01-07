@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 // Components
 import Game from "../components/Game";
+import GameDetails from "../components/GameDetails";
 
 function Home() {
   // Fetch Games
