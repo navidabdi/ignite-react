@@ -64,6 +64,21 @@ const StyeldGameDetails = styled(motion.div)`
     background: white;
     position: absolute;
     left: 10%;
+    .stats {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .info {
+        .platforms {
+        }
+      }
+    }
+    .media {
+      margin-top: 2rem;
+    }
+    .description {
+      margin: 3rem 0;
+    }
   }
 `;
 
