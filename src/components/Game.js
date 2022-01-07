@@ -51,7 +51,6 @@ const StyledGame = styled(motion.div)`
   img {
     height: 40vh;
     object-fit: cover;
-    margin-bottom: -5px;
   }
 `;
 
