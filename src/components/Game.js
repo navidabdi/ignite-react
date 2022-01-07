@@ -17,14 +17,18 @@ const Game = ({ name, released, image }) => {
 };
 
 const StyledGame = styled(motion.div)`
-  box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.08);
+  background-color: white;
+  box-shadow: 0 0 8px 3px rgba(0, 0, 0, 0.05);
   border-radius: 1rem;
   overflow: hidden;
   cursor: pointer;
   .des {
-    padding: 1.2rem 1rem 1rem 1rem;
+    padding: 1.5rem;
     h3 {
       margin-bottom: 0.5rem;
+    }
+    p {
+      color: #607d8b;
     }
   }
   img {
