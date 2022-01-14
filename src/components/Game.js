@@ -8,6 +8,8 @@ import { useDispatch } from "react-redux";
 import { loadGameDetails } from "../actions/detailsAction";
 // Router
 import { Link } from "react-router-dom";
+// Resize Image
+import { smallImage } from "../util";
 
 const Game = ({ name, released, image, id }) => {
   // Load Details
@@ -23,7 +25,7 @@ const Game = ({ name, released, image, id }) => {
           <h3>{name}</h3>
           <p>{released}</p>
         </div>
-        <img src={image} alt={name} />
+        <img src={smallImage(image, 640)} alt={name} />
       </Link>
     </StyledGame>
   );

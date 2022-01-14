@@ -6,6 +6,8 @@ import { motion } from "framer-motion";
 // Redux
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+// Resize Image
+import { smallImage } from "../util";
 const GameDetails = () => {
   // Exit Detail
   const history = useHistory();
@@ -38,12 +40,19 @@ const GameDetails = () => {
               </div>
             </div>
             <div className="media">
-              <img src={game.background_image} alt={game.name} />
+              <img
+                src={smallImage(game.background_image, 1280)}
+                alt={game.name}
+              />
             </div>
             <div className="description">{game.description_raw}</div>
             <div className="gallery">
               {screen.results.map((slide) => (
-                <img src={slide.image} key={slide.id} alt={game.name} />
+                <img
+                  src={smallImage(slide.image, 1280)}
+                  key={slide.id}
+                  alt={game.name}
+                />
               ))}
             </div>
           </div>
