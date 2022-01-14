@@ -5,14 +5,23 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 // Redux
 import { useSelector } from "react-redux";
-
+import { useHistory } from "react-router-dom";
 const GameDetails = () => {
+  // Exit Detail
+  const history = useHistory();
+  const exitDetailHandler = (e) => {
+    const element = e.target;
+    if (element.classList.contains("shadow")) {
+      // document.body.style.overflow = "auto";
+      history.push("/");
+    }
+  };
   // Get The Data
   const { game, screen, isLoading } = useSelector((state) => state.detail);
   return (
     <>
       {!isLoading && (
-        <StyeldGameDetails>
+        <StyeldGameDetails className="shadow" onClick={exitDetailHandler}>
           <div className="detail">
             <div className="stats">
               <div className="rating">
@@ -46,34 +55,58 @@ const GameDetails = () => {
 
 const StyeldGameDetails = styled(motion.div)`
   width: 100%;
-  min-height: 100vh;
-  overflow-y: scroll;
+  height: 100%;
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
   left: 0;
-  &::-webkit-scrollbar {
-    width: 0.5rem;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: #ff7676;
-  }
-  &::-webkit-scrollbar-track {
-    background: white;
-  }
+
   .detail {
-    width: 80%;
-    border-radius: 1rem;
-    padding: 2rem 4rem;
+    height: 90%;
+    overflow-y: scroll;
+    width: 70%;
+    border-radius: 0.5rem;
+    padding: 2rem 3rem;
     background: white;
     position: absolute;
-    left: 10%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #ff7676;
+    }
+    &::-webkit-scrollbar-track {
+      background: white;
+      border-radius: 0.5rem;
+    }
     .stats {
+      .rating {
+        h3 {
+          margin-bottom: 1rem;
+        }
+      }
       display: flex;
       align-items: center;
       justify-content: space-between;
       .info {
+        h3 {
+          margin-bottom: 1rem;
+        }
         .platforms {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          h3 {
+            font-size: 0.8rem;
+            font-weight: 300;
+            margin-left: 0.7rem;
+            &:first-child {
+              margin-left: 0;
+            }
+          }
         }
       }
     }
