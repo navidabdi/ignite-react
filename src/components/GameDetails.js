@@ -8,35 +8,39 @@ import { useSelector } from "react-redux";
 
 const GameDetails = () => {
   // Get The Data
-  const { game, screen } = useSelector((state) => state.detail);
+  const { game, screen, isLoading } = useSelector((state) => state.detail);
   return (
-    <StyeldGameDetails>
-      <div className="detail">
-        <div className="stats">
-          <div className="rating">
-            <h3>{game.name}</h3>
-            <p>Rating: {game.rating}</p>
-          </div>
-          <div className="info">
-            <h3>Platforms</h3>
-            <div className="platforms">
-              {game.platforms.map((data) => (
-                <h3 key={data.platform.id}>{data.platform.name}</h3>
+    <>
+      {!isLoading && (
+        <StyeldGameDetails>
+          <div className="detail">
+            <div className="stats">
+              <div className="rating">
+                <h3>{game.name}</h3>
+                <p>Rating: {game.rating}</p>
+              </div>
+              <div className="info">
+                <h3>Platforms</h3>
+                <div className="platforms">
+                  {game.platforms.map((data) => (
+                    <h3 key={data.platform.id}>{data.platform.name}</h3>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="media">
+              <img src={game.background_image} alt={game.name} />
+            </div>
+            <div className="description">{game.description_raw}</div>
+            <div className="gallery">
+              {screen.results.map((slide) => (
+                <img src={slide.image} key={slide.id} alt={game.name} />
               ))}
             </div>
           </div>
-        </div>
-        <div className="media">
-          <img src={game.background_image} alt={game.name} />
-        </div>
-        <div className="description">{game.description_raw}</div>
-        <div className="gallery">
-          {screen.results.map((slide) => (
-            <img src={slide.image} key={slide.id} alt={game.name} />
-          ))}
-        </div>
-      </div>
-    </StyeldGameDetails>
+        </StyeldGameDetails>
+      )}
+    </>
   );
 };
 
