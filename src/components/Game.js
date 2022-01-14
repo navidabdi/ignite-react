@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import { smallImage } from "../util";
 
 const Game = ({ name, released, image, id }) => {
+  const stringPathId = id.toString();
+
   // Load Details
   const dispatch = useDispatch();
   const loadDetailHandler = () => {
@@ -19,7 +21,7 @@ const Game = ({ name, released, image, id }) => {
     // document.body.style.overflow = "hidden";
   };
   return (
-    <StyledGame onClick={loadDetailHandler}>
+    <StyledGame layoutid={stringPathId} onClick={loadDetailHandler}>
       <Link to={`/games/${id}`}>
         <div className="des">
           <h3>{name}</h3>

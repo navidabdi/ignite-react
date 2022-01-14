@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 // Resize Image
 import { smallImage } from "../util";
-const GameDetails = () => {
+const GameDetails = ({ pathID }) => {
   // Exit Detail
   const history = useHistory();
   const exitDetailHandler = (e) => {
@@ -24,7 +24,16 @@ const GameDetails = () => {
     <>
       {!isLoading && (
         <StyeldGameDetails className="shadow" onClick={exitDetailHandler}>
-          <div className="detail">
+          <motion.div
+            initial={{ x: "50%", y: "-50%" }}
+            animate={{
+              x: "-50%",
+              y: "-50%",
+            }}
+            exit={{ x: "-50%", y: "50%" }}
+            className="detail"
+            layoutid={pathID}
+          >
             <div className="stats">
               <div className="rating">
                 <h3>{game.name}</h3>
@@ -55,14 +64,14 @@ const GameDetails = () => {
                 />
               ))}
             </div>
-          </div>
+          </motion.div>
         </StyeldGameDetails>
       )}
     </>
   );
 };
 
-const StyeldGameDetails = styled(motion.div)`
+const StyeldGameDetails = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
