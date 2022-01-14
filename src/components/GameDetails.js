@@ -71,8 +71,12 @@ const StyeldGameDetails = styled(motion.div)`
   left: 0;
 
   .detail {
+    @media only screen and (max-width: 992px) {
+      width: 90%;
+    }
     height: 90%;
     overflow-y: scroll;
+    overflow-x: hidden;
     width: 70%;
     border-radius: 0.5rem;
     padding: 2rem 3rem;

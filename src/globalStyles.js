@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
   }
   h2 {
       font-family: 'Abril Fatface', cursive;
-      font-size: 3rem;
+      font-size: 2rem;
       color: #37474F;
   }
   .container {
