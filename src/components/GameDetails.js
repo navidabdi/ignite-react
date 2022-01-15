@@ -88,7 +88,9 @@ const GameDetails = ({ pathID }) => {
                 alt={game.name}
               />
             </div>
-            <div className="description">{game.description_raw}</div>
+            <div className="description">
+              <p>{game.description_raw}</p>
+            </div>
             <div className="gallery">
               {screen.results.map((slide) => (
                 <img
@@ -138,6 +140,7 @@ const StyeldGameDetails = styled.div`
       background: white;
       border-radius: 0.5rem;
     }
+
     .stats {
       .rating {
         h3 {
@@ -152,9 +155,13 @@ const StyeldGameDetails = styled.div`
           margin-bottom: 1rem;
         }
         .platforms {
+          img {
+            width: 20px;
+            margin-right: 1rem;
+          }
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: flex-start;
           h3 {
             font-size: 0.8rem;
             font-weight: 300;
@@ -171,6 +178,12 @@ const StyeldGameDetails = styled.div`
     }
     .description {
       margin: 3rem 0;
+      p {
+        font-size: 1.1rem;
+        line-height: 2rem;
+        text-align: justify;
+        font-weight: 500;
+      }
     }
   }
 `;
