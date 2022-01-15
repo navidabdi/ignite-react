@@ -49,3 +49,7 @@ export const gameDetailsURL = (gameID) =>
 // Game ScreenShots URL
 export const gameScreenShotsURL = (gameID) =>
   `https://api.rawg.io/api/games/${gameID}/screenshots?key=${REACT_APP_RAWG_API}`;
+
+// Searched Game
+export const searchGameURL = (gameName) =>
+  `${base_url}&search=${gameName}&page_size=9`;
