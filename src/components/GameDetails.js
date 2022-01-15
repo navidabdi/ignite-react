@@ -47,7 +47,6 @@ const GameDetails = ({ pathID }) => {
         return Gamepad;
     }
   };
-
   // Get The Data
   const { game, screen, isLoading } = useSelector((state) => state.detail);
   return (
@@ -67,7 +66,15 @@ const GameDetails = ({ pathID }) => {
             <div className="stats">
               <div className="rating">
                 <h3>{game.name}</h3>
-                <p>Rating: {game.rating}</p>
+                <div className="rate-con">
+                  <p>Rating: </p> <p> {game.rating}</p>
+                  <div className="star-rating">
+                    <div
+                      className="rate"
+                      style={{ width: `${game.rating * 20}%` }}
+                    ></div>
+                  </div>
+                </div>
               </div>
               <div className="info">
                 <h3>Platforms</h3>
@@ -143,6 +150,49 @@ const StyeldGameDetails = styled.div`
 
     .stats {
       .rating {
+        .rate-con {
+          display: flex;
+          p {
+            margin-right: 0.5rem;
+          }
+        }
+        .star-rating {
+          overflow: hidden;
+          position: relative;
+          height: 30px;
+          font-size: 15px;
+          width: 84px;
+          font-family: "Font Awesome 5 Free";
+          display: inline-block;
+          vertical-align: middle;
+          font-weight: 900;
+          &:before {
+            content: "\f005\f005\f005\f005\f005";
+            font-size: 0.93rem;
+            top: 0;
+            right: 0;
+            float: right;
+            position: absolute;
+            color: #aaaaaa;
+          }
+          .rate {
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            position: absolute;
+            padding-top: 2em;
+            color: #ffb300;
+            /* width: 50%; */
+            &:before {
+              content: "\f005\f005\f005\f005\f005";
+              font-size: 15px;
+              top: 0;
+              left: 0;
+              position: absolute;
+              font-weight: 900;
+            }
+          }
+        }
         h3 {
           margin-bottom: 1rem;
         }
