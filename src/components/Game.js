@@ -10,6 +10,8 @@ import { loadGameDetails } from "../actions/detailsAction";
 import { Link } from "react-router-dom";
 // Resize Image
 import { smallImage } from "../util";
+// Animations
+import { popup } from "../animations";
 
 const Game = ({ name, released, image, id }) => {
   const stringPathId = id.toString();
@@ -21,7 +23,13 @@ const Game = ({ name, released, image, id }) => {
     // document.body.style.overflow = "hidden";
   };
   return (
-    <StyledGame layoutid={stringPathId} onClick={loadDetailHandler}>
+    <StyledGame
+      variants={popup}
+      initial="hidden"
+      animate="show"
+      layoutid={stringPathId}
+      onClick={loadDetailHandler}
+    >
       <Link to={`/games/${id}`}>
         <div className="des">
           <h3>{name}</h3>
