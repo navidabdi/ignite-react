@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
   a {
       text-decoration: none;
       display: block;
+      color: #455A64;
   }
   ::-webkit-scrollbar {
       width: .5rem;
@@ -30,7 +31,6 @@ const GlobalStyle = createGlobalStyle`
       overflow-x: hidden;
   }
   h2 {
-      font-family: 'Abril Fatface', cursive;
       font-size: 2rem;
       color: #37474F;
   }

@@ -173,7 +173,7 @@ const StyeldGameDetails = styled.div`
             right: 0;
             float: right;
             position: absolute;
-            color: #aaaaaa;
+            color: #cfcfcf;
           }
           .rate {
             overflow: hidden;
