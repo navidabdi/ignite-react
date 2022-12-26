@@ -26,7 +26,7 @@ const Nav = () => {
   return (
     <StyledNav>
       <div className="container">
-        <a onClick={clearSearched} className="logo">
+        <a href="/" onClick={clearSearched} className="logo">
           Ignite
         </a>
         <form className="search">

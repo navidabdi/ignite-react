@@ -11,7 +11,6 @@ import { smallImage } from "../util";
 // Import Images
 import Android from "../img/Android.svg";
 import iOS from "../img/iOS.svg";
-import Iphone from "../img/Iphone.svg";
 import Nintendo from "../img/Nintendo.svg";
 import Steam from "../img/PC.svg";
 import PlayStation from "../img/PlayStation.svg";
@@ -81,6 +80,7 @@ const GameDetails = ({ pathID }) => {
                 <div className="platforms">
                   {game.platforms.map((data) => (
                     <img
+                      alt={data.platform.name}
                       className={data.platform.id}
                       src={getPlatform(data.platform.name)}
                       key={data.platform.id}
